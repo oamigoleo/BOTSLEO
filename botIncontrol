@@ -1,0 +1,242 @@
+import pyautogui
+import time
+import clipboard
+import subprocess
+import webbrowser
+
+pyautogui.FAILSAFE
+def execute_tasks():
+    time.sleep(4)
+    relatorios_location = pyautogui.locateCenterOnScreen('relatorios.png', confidence=0.8)
+    if relatorios_location:
+        pyautogui.click(relatorios_location)
+        time.sleep(5) 
+
+    eventos_location = pyautogui.locateCenterOnScreen('eventos.png', confidence=0.8)
+    if eventos_location:
+        pyautogui.click(eventos_location)
+        time.sleep(4)  
+
+    filtros_location = pyautogui.locateCenterOnScreen('filtros.png', confidence=0.8)
+    if filtros_location:
+        pyautogui.click(filtros_location)
+        time.sleep(3) 
+
+    data_inicial_location = None
+    move_amount = 30
+    scroll_amount = 200  
+    num_scrolls = 2 
+
+    pyautogui.moveTo(500, 500) 
+
+    while not data_inicial_location and num_scrolls > 0:
+        pyautogui.move(0, move_amount, duration=0.2)
+        pyautogui.click()
+        for _ in range(num_scrolls):
+            pyautogui.press('pagedown')
+            time.sleep(2) 
+        data_inicial_location = pyautogui.locateCenterOnScreen('data_inicial.png', confidence=0.8)
+        num_scrolls -= 1
+
+    if data_inicial_location:
+        pyautogui.click(data_inicial_location)
+        time.sleep(2)
+
+    dia1_location = pyautogui.locateCenterOnScreen('dia1.png', confidence=0.8)
+    if dia1_location:
+        pyautogui.click(dia1_location)
+        time.sleep(3)  
+
+    data_final_location = pyautogui.locateCenterOnScreen('data_final.png', confidence=0.8)
+    if data_final_location:
+        pyautogui.click(data_final_location)
+        time.sleep(3) 
+
+    dia_atual_location = pyautogui.locateCenterOnScreen('dia_atual.png', confidence=0.8)
+    if dia_atual_location:
+        pyautogui.click(dia_atual_location)
+        time.sleep(3)
+        
+    filtrar_location = pyautogui.locateCenterOnScreen('filtrar.png', confidence=0.8)
+    if filtrar_location:
+        pyautogui.click(filtrar_location)
+        time.sleep(7)
+
+    exportar_location = pyautogui.locateCenterOnScreen('exportar.png', confidence=0.8)
+    if exportar_location:
+        pyautogui.click(exportar_location)
+        time.sleep(3) 
+
+    csv_location = pyautogui.locateCenterOnScreen('csv.png', confidence=0.9)
+    if csv_location:
+        pyautogui.click(csv_location)
+        time.sleep(1300) 
+       
+    openexcel_location = pyautogui.locateCenterOnScreen('eventoAbrir.png', confidence=0.9)
+    if openexcel_location:
+        pyautogui.click(openexcel_location)
+        time.sleep(120)
+
+    rename_location = pyautogui.locateCenterOnScreen('evento2024.png', confidence=0.9)
+    if rename_location:
+        pyautogui.doubleClick(rename_location)
+        time.sleep(5)
+
+    rename_arquivo = r"in"
+    clipboard.copy(rename_arquivo)
+
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(3)
+
+    pyautogui.hotkey('enter')
+    time.sleep(3)
+
+    pyautogui.hotkey('ctrl', 't')
+    time.sleep(5)
+
+    format_table_location = pyautogui.locateCenterOnScreen('formatar_como_tabela.png', confidence=0.8)
+    if format_table_location:
+        pyautogui.click(format_table_location)
+        time.sleep(3)
+
+    table_style_location = pyautogui.locateCenterOnScreen('estilo_tabela.png', confidence=0.8)
+    if table_style_location:
+        pyautogui.click(table_style_location)
+        time.sleep(3)
+
+    pyautogui.press('enter')
+    pyautogui.hotkey('f12')
+    time.sleep(5)
+
+    pyautogui.press('tab')
+    time.sleep(3)
+
+    pyautogui.press('down')
+    time.sleep(3)
+
+    xlsx_location = pyautogui.locateCenterOnScreen('xlsx.png', confidence=0.8)
+    if xlsx_location:
+        pyautogui.click(xlsx_location)
+        time.sleep(3) 
+
+    search_location = pyautogui.locateCenterOnScreen('search.png', confidence=0.8)
+    if search_location:
+        pyautogui.click(search_location)
+        time.sleep(3) 
+
+    caminho_arquivo = r"C:\Relatório Incontrol"
+    clipboard.copy(caminho_arquivo)
+
+    pyautogui.hotkey('ctrl', 'v')
+    time.sleep(3)
+
+    pyautogui.press('enter')
+    time.sleep(3)
+
+    salvar_location = pyautogui.locateCenterOnScreen('salvar.png', confidence=0.8)
+    if salvar_location:
+        pyautogui.click(salvar_location)
+        time.sleep(4) 
+
+    pyautogui.hotkey('alt', 's')
+    time.sleep(4)
+
+    pyautogui.hotkey('alt', 's')
+    time.sleep(4)
+
+    pyautogui.hotkey('alt', 'f4')
+    time.sleep(8)
+
+    pyautogui.hotkey('f5')
+    time.sleep(20)
+
+    pyautogui.hotkey('ctrl', 'tab')
+    time.sleep(5)
+
+    carregar_location = pyautogui.locateCenterOnScreen('carregar.png', confidence=0.8)
+    if carregar_location:
+        pyautogui.click(carregar_location)
+        time.sleep(4)
+
+    arquivos_location = pyautogui.locateCenterOnScreen('arquivos.png', confidence=0.8)
+    if arquivos_location:
+        pyautogui.click(arquivos_location)
+        time.sleep(10)
+
+    incontrol_location = pyautogui.locateCenterOnScreen('incontrol.png', confidence=0.8)
+    if incontrol_location:
+        pyautogui.click(incontrol_location)
+        time.sleep(3)
+
+    pyautogui.press('enter')
+    time.sleep(8)
+
+    substituir2_location = pyautogui.locateCenterOnScreen('substituir2.png', confidence=0.8)
+    if substituir2_location:
+        pyautogui.click(substituir2_location)
+        time.sleep(20)
+
+    pyautogui.hotkey('ctrl', 'tab')
+    time.sleep(5)
+
+    pbi_location = pyautogui.locateCenterOnScreen('pbi.png', confidence=0.8)
+    if pbi_location:
+        pyautogui.click(pbi_location)
+        time.sleep(4)
+
+    atualizar_location = pyautogui.locateCenterOnScreen('atualizar.png', confidence=0.8)
+    if atualizar_location:
+        pyautogui.click(atualizar_location)
+        time.sleep(100)  
+
+    pyautogui.hotkey('esc')
+    time.sleep(5)
+
+    pyautogui.hotkey('enter')
+    time.sleep(7)
+
+    pyautogui.hotkey('esc')
+    time.sleep(5)
+
+    pyautogui.hotkey('enter')
+    time.sleep(5)
+
+    pyautogui.hotkey('esc')
+    time.sleep(10)
+
+    pyautogui.hotkey('enter')
+    time.sleep(5)
+
+    pyautogui.hotkey('enter')
+    time.sleep(10)
+
+    pyautogui.hotkey('enter')
+    time.sleep(5)
+    
+    publicar_location = pyautogui.locateCenterOnScreen('publicar.png', confidence=0.8)
+    if publicar_location:
+        pyautogui.click(publicar_location)
+        time.sleep(15)  
+
+    save_location = pyautogui.locateCenterOnScreen('save.png', confidence=0.8)
+    if save_location:
+        pyautogui.click(save_location)
+        time.sleep(40) 
+    
+    selecionar_location = pyautogui.locateCenterOnScreen('selecionar.png', confidence=0.9)
+    if selecionar_location:
+        pyautogui.click(selecionar_location)
+        time.sleep(8)
+
+    pyautogui.hotkey('enter')
+    time.sleep(15)
+
+    pyautogui.hotkey('esc')
+    time.sleep(5)
+
+    pyautogui.hotkey('alt', 'tab')
+    time.sleep(5)
+    
+while True:
+    execute_tasks()
+    time.sleep(1)  
